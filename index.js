@@ -40,6 +40,19 @@ const matchers = function(exp) {
                        fails += 1;
                        return false
                    }
+              },
+              toThrow: function() {
+                    try {
+                      exp()
+
+                    } catch(e) {
+                      console.log('    pass')
+                      passes += 1;
+                      return true
+                    }
+                    console.log('    fail')
+                    fails += 1;
+                    return false
               }
          }
 
@@ -80,10 +93,14 @@ describe('dog', function(){
      expect(dog.bark()).toBe('woof');
   });
 
-  it('can meow', function(){
-     var dog = new Dog();
-     expect(dog.meow()).toBe('meow');
-  });
+  it('raises an error', function(){
+    expect(function() { throw "this is an error" } ).toThrow()
+  })
+
+  // it('can meow', function(){
+  //    var dog = new Dog();
+  //    expect(dog.meow()).toBe('meow');
+  // });
 });
 
 describe('cat', function() {
@@ -95,5 +112,3 @@ describe('cat', function() {
 console.log("Total tests: " + (passes + fails));
 console.log("Passes: " + (passes));
 console.log("Fails: " + (fails));
-
-
