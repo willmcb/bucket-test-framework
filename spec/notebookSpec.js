@@ -5,6 +5,7 @@ describe('Notebook', function (){
     notebook.add(note);
     expect(notebook.notes).includes(note);
   });
+
   it('can delete a note', function () {
     var notebook = new NoteBook();
     notebook.add(note);
@@ -12,9 +13,9 @@ describe('Notebook', function (){
     expect(notebook.notes.includes(note)).toBe(false);
   });
 
-
-
-  // it('has text content', function () {
-  //   var note1 = new Note('This is new note');
-  // });
+  it('can get a note', function () {
+    var notebook = new NoteBook();
+    notebook.add(note);
+    expect(notebook.getNote(1)).toBe(note);
+  });
 });
