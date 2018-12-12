@@ -23,4 +23,12 @@ describe('Note', function (){
       expect(note2.summary().length).toBe(11);
     });
   });
+
+  describe('@id', function() {
+    it('creates two notes with subsequent IDs', function() {
+      var note1 = new Note('ok')
+      var note2 = new Note('not ok')
+      expect(note2.id).toBe(note1.id + 1)
+    })
+  })
 });
