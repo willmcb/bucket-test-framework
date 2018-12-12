@@ -29,3 +29,8 @@ NoteBook.prototype.getNote = function(id) {
   });
   return returnNote;
 }
+
+
+NoteBook.prototype.create = function(content) {
+  this.add(new Note(content));
+}
