@@ -24,7 +24,7 @@ const matchers = function(exp) {
              toBe: function(assertion) {
                     if (exp === assertion) {
                        console.log('    pass')
-                      document.getElementById("results").append = 'pass';
+                      document.getElementById("results").innerHTML = 'pass';
                        passes += 1;
                        return true
                     } else {
