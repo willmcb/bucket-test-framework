@@ -1,17 +1,20 @@
-// const bucket = require('../bucket-test-framework/bucket.js');
-// const createDouble = bucket.createDouble;
-// const describe = bucket.describe;
-// const it = bucket.it;
-// const expect = bucket.expect;
-// const Note = require('../src/note.js');
-
 describe('Note', function (){
-  it('has text content', function () {
-    var note1 = new Note('This is a new note');
-    expect(note1.content).toBe('This is a new note');
+  describe('@content', function() {
+    it('has text content', function () {
+      var note1 = new Note('This is a new note');
+      expect(note1.content).toBe('This is a new note');
+    });
+    it('has text content', function () {
+      var note1 = new Note('This is new note');
+      expect(note1.content).toNotBe('This is a new note');
+    });
   });
-  it('has text content', function () {
-    var note1 = new Note('This is new note');
-    expect(note1.content).toBe('This is a new note');
-  });
+
+  describe('.summary', function() {
+    it('shows the first 20 chars of a 30 char string', function() {
+      var note1 = new Note('abcdefghsisisislfdjemerpwitrms');
+      expect(note1.summary()).toBe('abcdefghsisisislfdje');
+      expect(note1.summary().length).toBe(20)
+    })
+  })
 });
