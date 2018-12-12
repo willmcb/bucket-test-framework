@@ -6,7 +6,7 @@ var Note = (function() {
   return function Note(content) {
       this.content = content;
       this.id = nextId++;
-   }
+   };
 })();
 
 Note.prototype.summary = function() {
