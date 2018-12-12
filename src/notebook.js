@@ -16,3 +16,16 @@ NoteBook.prototype.delete = function(id)  {
   });
   return false;
 }
+
+NoteBook.prototype.getNote = function(id) {
+  var that = this;
+  var returnNote = '';
+  this.notes.forEach(function(note, index){
+    if (note.id() === id) {
+        console.log(note);
+        console.log(note.content());
+        returnNote = note;
+    }
+  });
+  return returnNote;
+}

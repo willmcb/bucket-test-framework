@@ -15,7 +15,16 @@ describe('Notebook', function (){
 
   it('can get a note', function () {
     var notebook = new NoteBook();
+    console.log("nside test " + note.content())
     notebook.add(note);
-    expect(notebook.getNote(1)).toBe(note);
+    returnedNote = notebook.getNote(1)
+    console.log("in the test"+returnedNote)
+    expect(returnedNote.content()).toBe('this is a senetence that is longer than 20 chars');
+  });
+
+  it('creates a note', function() {
+    var notebook = new NoteBook();
+    notebook.create('Im a note. note note note');
+    expect(notebook.notes.length).toBe(1);
   });
 });
