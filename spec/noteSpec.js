@@ -14,7 +14,13 @@ describe('Note', function (){
     it('shows the first 20 chars of a 30 char string', function() {
       var note1 = new Note('abcdefghsisisislfdjemerpwitrms');
       expect(note1.summary()).toBe('abcdefghsisisislfdje');
-      expect(note1.summary().length).toBe(20)
-    })
-  })
+      expect(note1.summary().length).toBe(20);
+    });
+
+    it('will show all of a string that is 20 chars or less', function () {
+      var note2 = new Note('12345678910');
+      expect(note2.summary()).toBe('12345678910');
+      expect(note2.summary().length).toBe(11);
+    });
+  });
 });
